@@ -209,12 +209,13 @@ public class Board extends JPanel implements ActionListener {
           
           
           // SOUNDS
+          /*
           private Sound _sHorn = new Sound("horn3.wav");
           private boolean _horn;
           
           private Sound _sSiren = new Sound("siren2.wav");
           private boolean _siren = false;
-          
+          */
           
           
           
@@ -319,7 +320,7 @@ public class Board extends JPanel implements ActionListener {
             }
             
             
-            if(_siren) _sSiren.loop();
+            //if(_siren) _sSiren.loop();
             
             
             
@@ -2310,10 +2311,10 @@ public class Board extends JPanel implements ActionListener {
                 _pause = !_pause;
               }
               
-              if(k == KeyEvent.VK_H && !_horn){
+              /*if(k == KeyEvent.VK_H && !_horn){
                 _horn = true;
                 _sHorn.play();
-              }
+              }*/
               
             }
             
@@ -2323,10 +2324,10 @@ public class Board extends JPanel implements ActionListener {
               
               if(_lastKey == k) _lastKey = 0;
               
-              if(k == KeyEvent.VK_H && _horn){
+              /*if(k == KeyEvent.VK_H && _horn){
                 _horn = false;
                 _sHorn.stop();
-              }
+              }*/
             }
           }
           
