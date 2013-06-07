@@ -1,0 +1,37 @@
+Andrew Zarenberg
+Period 9
+
+
+Name: Street Racer
+
+
+GENERAL IDEA
+
+Race mode:
+You are in control of a car and are competing with computer driven race cars to drive a certain distance.  Along the way you will encounter traffic cars, changing road conditions, and traffic lights.  Your goal is to get to the finish line first.  Crashing into traffic cars or the sides of the road will slow you down.
+
+Simulation mode: 
+(mainly to demonstrate how the computer driven cars operate)
+A computer driver car is centered on the screen and all the "sensors" that allow the car to operate properly are shown.  With the press of a button you can take control of the car so that it's user driven, and then with the press of the same button switch back to computer driven mode.
+
+
+INCORPORATION OF APCS TOPICS
+- ArrayList
+I can probably incorporate a stack and/or queue into the game as well.
+
+PROOF OF PRINCIPLE
+Most of the main code has already been written and you've already seen the game in action.
+I've also already emailed you twice in the past with the code for the game at that time and list of features to keep you updated, once on February 14th and another on March 3rd.
+
+TO-DO LIST
+
+High priority:
+- Improve collision detection and crash prevention
+
+Low priority:
+- Add more road obstacles (possibly construction or lane widening/narrowing)
+- Fix the problems with sound not working on school computers
+
+Possible additions:
+- Add cross traffic at intersections with traffic lights
+- Rather than always going straight, put turn lanes at intersections and allow the user (or computer driven car) to make right or left turns
