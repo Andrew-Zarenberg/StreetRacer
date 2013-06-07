@@ -1,0 +1,31 @@
+In this racing game there are three modes: Player controlled race, Computer controlled race, and free drive.
+
+
+|------------------------|
+| Player Controlled Race |
+|------------------------|
+Select either Quick Race to jump straight into a race, or Custom Race to adjust settings for a race.
+
+In a race, the player drives their car to get to the finish line a certain distance away while competing against computer controlled racers.  Cars with their lights on are in the race; cars with their lights off are innocent drivers that have the misfortune of being right in the middle of a street race.
+
+|--------------------------|
+| Computer Controlled Race |
+|--------------------------|
+Select Auto-Drive Simulation Race
+
+No player interaction necessary.  All racers are computer controlled, with the camera centered around one of the cars.  The player may take over control of the car at any time.  (A key is toggle auto-drive by default).  The player may also activate the brakes at any time while keeping the car auto-drive mode.  (Down key is the default).
+
+Same concept as a player controlled race except it demonstrates the brains and algorithms behind the computer controlled racers.
+
+|------------|
+| Free Drive |
+|------------|
+No other racers, no finish line, just endless driving.
+
+Unlike races, intersections and pedestrian crossings with traffic lights will appear at times.  Auto-drive may be enabled at any time as well.
+
+
+|----------|
+| Controls |
+|----------|
+Select the Controls tab in the in-game menu to view or change the controls.
