@@ -4,22 +4,20 @@ import java.awt.Graphics2D;
 import javax.swing.ImageIcon;
 import java.awt.*;
 
-public class HondaOdyssey extends Car {
-  public static final int LENGTH = 77;
-  public static final int WIDTH = 31;
+public class Lambo extends Car {
+  public static final int LENGTH = 71;
+  public static final int WIDTH = 34;
   
-  private Image _image = (new ImageIcon(this.getClass().getResource("hondaOdyssey.gif"))).getImage();
+  private Image _image = (new ImageIcon(this.getClass().getResource("lambo.gif"))).getImage();
   
   
-  public HondaOdyssey(int x, int y, int laneWidth){
+  public Lambo(int x, int y, int laneWidth){
     super(x, y, LENGTH, WIDTH, laneWidth);
-    _carType = "Honda Odyssey";
   }
   
   
-  public HondaOdyssey(int x, int y, double angle, int speed, int desiredSpeed, int lane, int laneWidth){
+  public Lambo(int x, int y, double angle, int speed, int desiredSpeed, int lane, int laneWidth){
     super(x, y, LENGTH, WIDTH, angle, speed, desiredSpeed, lane, laneWidth);
-    _carType = "Honda Odyssey";
   }
   
   
@@ -30,7 +28,7 @@ public class HondaOdyssey extends Car {
     int y = (int)_y;
     
     // car background
-    g2.drawImage(_image, x-3, y, null);
+    g2.drawImage(_image, x-2, y, null);
     
     // brake lights
     
@@ -38,8 +36,8 @@ public class HondaOdyssey extends Car {
     if(_brakeLight || _lights){
       if(_brakeLight) g2.setColor(Color.red);
       else if(_lights) g2.setColor(new Color(247, 159, 159));
-      g2.fillRect(x+6,y+_length-5,4,5);
-      g2.fillRect(x+_width-10,y+_length-5,4,5);
+      g2.fillRect(x+8,y+_length-5,4,5);
+      g2.fillRect(x+_width-12,y+_length-5,4,5);
     }
     
     
@@ -47,17 +45,17 @@ public class HondaOdyssey extends Car {
       // LEFT signal light
       if(_signalLeft){
         g2.setColor(Color.yellow);
-        g2.fillRect(x+2,y+_length-5,4,5);
-        g2.fillPolygon(new int[]{x+4,x+1,x+4,x+8},
-                       new int[]{y+1,y+9,y+9,y+1},
+        g2.fillRect(x+4,y+_length-5,4,5);
+        g2.fillPolygon(new int[]{x+4,x+1 ,x+6 ,x+10},
+                       new int[]{y  ,y+10,y+10,y   },
                        4);
       }
       // RIGHT signal light
       if(_signalRight){
         g2.setColor(Color.yellow);
-        g2.fillRect(x+_width-6,y+_length-5,4,5);
-        g2.fillPolygon(new int[]{x+_width-4,x+_width-1 ,x+_width-4 ,x+_width-8},
-                       new int[]{y+1,y+9,y+9,y+1},
+        g2.fillRect(x+_width-8,y+_length-5,4,5);
+        g2.fillPolygon(new int[]{x+_width-4,x+_width-1 ,x+_width-6 ,x+_width-10},
+                       new int[]{y  ,y+10,y+10,y   },
                        4);
       }
     }
@@ -66,15 +64,15 @@ public class HondaOdyssey extends Car {
     // HEADLIGHTS
     if(_lights || (_police && _sirenPhase%2 == 0)){
       g2.setColor(Color.white);
-        g2.fillPolygon(new int[]{x+4,x+1,x+4,x+8},
-                       new int[]{y+1,y+9,y+9,y+1},
+        g2.fillPolygon(new int[]{x+4,x+1 ,x+6 ,x+10},
+                       new int[]{y  ,y+10,y+10,y   },
                        4);
     }
     
     if(_lights || (_police && _sirenPhase%2 == 1)){
       g2.setColor(Color.white);
-        g2.fillPolygon(new int[]{x+_width-4,x+_width-1 ,x+_width-4 ,x+_width-8},
-                       new int[]{y+1,y+9,y+9,y+1},
+        g2.fillPolygon(new int[]{x+_width-4,x+_width-1 ,x+_width-6 ,x+_width-10},
+                       new int[]{y  ,y+10,y+10,y   },
                        4);
     }
     
@@ -83,30 +81,30 @@ public class HondaOdyssey extends Car {
     // SIREN
     if(_police){
       if((_sirenPhase/2)%2 == 0) g2.setColor(Color.blue);
-      g2.fillRect(x+4,y+32,11,6);
+      g2.fillRect(x+6,y+32,11,6);
       
       if((_sirenPhase/2)%2 == 1) g2.setColor(Color.red);
       else g2.setColor(Color.lightGray);
-      g2.fillRect(x+15,y+32,11,6);
+      g2.fillRect(x+_width/2,y+32,11,6);
       
       
       if(_sirenPhase == 1 || _sirenPhase == 3){
         g2.setColor(Color.red);
-        g2.fillRect(x+6,y+_length-5,4,5);
-        g2.fillRect(x+_width-10,y+_length-5,4,5);
+        g2.fillRect(x+4,y+_length-5,4,5);
+        g2.fillRect(x+_width-8,y+_length-5,4,5);
         
       } else if(_sirenPhase == 5 || _sirenPhase == 7){
         g2.setColor(Color.white);
-        g2.fillRect(x+2,y+_length-5,4,5);
-        g2.fillRect(x+_width-6,y+_length-5,4,5);
+        g2.fillRect(x+4,y+_length-5,4,5);
+        g2.fillRect(x+_width-8,y+_length-5,4,5);
       }
       
       if(_sirenPhase%2 == 0){
         g2.setColor(Color.blue);
-        g2.fillRect(x+8,y+1,7,3);
+        g2.fillRect(x+10,y,7,3);
       } else {
         g2.setColor(Color.red);
-        g2.fillRect(x+15,y+1,7,3);
+        g2.fillRect(x+17,y,7,3);
       }
       
     }

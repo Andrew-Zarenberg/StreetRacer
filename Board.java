@@ -348,7 +348,7 @@ public class Board extends JPanel implements ActionListener {
           
           
           public Image image(String n){
-            return (new ImageIcon(this.getClass().getResource(n))).getImage();
+            return (Image)(new ImageIcon(this.getClass().getResource(n))).getImage();
           }
           
           public Car randomCar(int x, int y, double angle, int speed, int desiredSpeed, int lane, int laneWidth){
@@ -637,7 +637,7 @@ public class Board extends JPanel implements ActionListener {
               
               _y += ((_me.getSpeed()/5.0)*Math.cos(Math.toRadians(_me.getAngle())));
               
-              if(!_me.getJustChanged()) _me.setX(_me.getX()+(_me.getSpeed()/5.0)*Math.sin(Math.toRadians(_me.getAngle())));
+              if(!_me.getJustChanged()) _me.setX(_me.getX()+(_me.getSpeed()/4.0)*Math.sin(Math.toRadians(_me.getAngle())));
               
               
               if(_controlSelectType == 1 && control(Controls.DEBUG) && _lastKey != _controls[Controls.DEBUG]){
@@ -936,9 +936,9 @@ public class Board extends JPanel implements ActionListener {
                 }
                 else {
                   double k = _me.getAngle();
-                  if(k < .5 && k > -.5) _me.setAngle(0);
-                  else if(k < 0) steer(.75);
-                  else if(k > 0) steer(-.75);
+                  if(k < (int)(_me.getSpeed()/5)*.15 && k > -(int)(_me.getSpeed()/5)*.15) _me.setAngle(0);
+                  else if(k < 0) steer((int)(Math.min(_me.getSpeed()/5,50))*.15+.1);
+                  else if(k > 0) steer(-(int)(Math.min(_me.getSpeed()/5,50))*.15-.1);
                   
                 }
                 

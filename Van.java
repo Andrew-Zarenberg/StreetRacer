@@ -4,22 +4,20 @@ import java.awt.Graphics2D;
 import javax.swing.ImageIcon;
 import java.awt.*;
 
-public class HondaOdyssey extends Car {
-  public static final int LENGTH = 77;
-  public static final int WIDTH = 31;
+public class Van extends Car {
+  public static final int LENGTH = 143;
+  public static final int WIDTH = 40;
   
-  private Image _image = (new ImageIcon(this.getClass().getResource("hondaOdyssey.gif"))).getImage();
+  private Image _image = (new ImageIcon(this.getClass().getResource("van.gif"))).getImage();
   
   
-  public HondaOdyssey(int x, int y, int laneWidth){
+  public Van(int x, int y, int laneWidth){
     super(x, y, LENGTH, WIDTH, laneWidth);
-    _carType = "Honda Odyssey";
   }
   
   
-  public HondaOdyssey(int x, int y, double angle, int speed, int desiredSpeed, int lane, int laneWidth){
+  public Van(int x, int y, double angle, int speed, int desiredSpeed, int lane, int laneWidth){
     super(x, y, LENGTH, WIDTH, angle, speed, desiredSpeed, lane, laneWidth);
-    _carType = "Honda Odyssey";
   }
   
   
@@ -30,7 +28,7 @@ public class HondaOdyssey extends Car {
     int y = (int)_y;
     
     // car background
-    g2.drawImage(_image, x-3, y, null);
+    g2.drawImage(_image, x-2, y, null);
     
     // brake lights
     
@@ -66,16 +64,29 @@ public class HondaOdyssey extends Car {
     // HEADLIGHTS
     if(_lights || (_police && _sirenPhase%2 == 0)){
       g2.setColor(Color.white);
-        g2.fillPolygon(new int[]{x+4,x+1,x+4,x+8},
-                       new int[]{y+1,y+9,y+9,y+1},
+      g2.fillPolygon(new int[]{x+4,x+1,x+4,x+8},
+                     new int[]{y+1,y+9,y+9,y+1},
+                     4);
+      if(_lights){
+        g2.setColor(new Color(255,255,255,40));
+        g2.fillPolygon(new int[]{x+1,x-20,x+30,x+8},
+                       new int[]{y+9,y-60,y-60,y+1},
                        4);
+      }
     }
     
     if(_lights || (_police && _sirenPhase%2 == 1)){
       g2.setColor(Color.white);
-        g2.fillPolygon(new int[]{x+_width-4,x+_width-1 ,x+_width-4 ,x+_width-8},
-                       new int[]{y+1,y+9,y+9,y+1},
+      g2.fillPolygon(new int[]{x+_width-4,x+_width-1 ,x+_width-4 ,x+_width-8},
+                     new int[]{y+1,y+9,y+9,y+1},
+                     4);
+        
+      if(_lights){
+        g2.setColor(new Color(255,255,255,40));
+        g2.fillPolygon(new int[]{x+_width-1,x+_width+20,x+_width-30,x+_width-8},
+                       new int[]{y+9,y-60,y-60,y+1},
                        4);
+      }
     }
     
     
@@ -83,11 +94,11 @@ public class HondaOdyssey extends Car {
     // SIREN
     if(_police){
       if((_sirenPhase/2)%2 == 0) g2.setColor(Color.blue);
-      g2.fillRect(x+4,y+32,11,6);
+      g2.fillRect(x+3,y+32,12,6);
       
       if((_sirenPhase/2)%2 == 1) g2.setColor(Color.red);
       else g2.setColor(Color.lightGray);
-      g2.fillRect(x+15,y+32,11,6);
+      g2.fillRect(x+15,y+32,12,6);
       
       
       if(_sirenPhase == 1 || _sirenPhase == 3){
